@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Sora", "sans-serif"],
+        heading: ["Inter", "sans-serif"],
         body: ["Inter", "sans-serif"],
       },
       colors: {
@@ -60,14 +60,6 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
-        },
-        cyan: {
-          DEFAULT: "hsl(187, 92%, 42%)",
-          light: "hsl(187, 92%, 55%)",
-        },
-        purple: {
-          DEFAULT: "hsl(263, 70%, 35%)",
-          light: "hsl(263, 80%, 70%)",
         },
       },
       borderRadius: {

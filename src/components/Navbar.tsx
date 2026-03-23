@@ -22,14 +22,14 @@ const Navbar = () => {
   const { user, signOut } = useAuth();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
       <div className="section-container flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
             <span className="text-primary-foreground font-heading font-bold text-sm">T</span>
           </div>
-          <span className="font-heading font-bold text-lg text-foreground">
-            Talent<span className="gradient-text">IQ</span>
+          <span className="font-heading font-bold text-lg text-foreground tracking-tight">
+            TalentIQ
           </span>
         </Link>
 
@@ -63,14 +63,14 @@ const Navbar = () => {
               <Button variant="ghost" size="sm" asChild>
                 <Link to="/dashboard">Dashboard</Link>
               </Button>
-              <Button variant="hero" size="sm" onClick={() => signOut()}>Sign Out</Button>
+              <Button variant="default" size="sm" onClick={() => signOut()}>Sign Out</Button>
             </>
           ) : (
             <>
               <Button variant="ghost" size="sm" asChild>
                 <Link to="/login">Login</Link>
               </Button>
-              <Button variant="hero" size="sm" asChild>
+              <Button variant="default" size="sm" asChild>
                 <Link to="/get-started">Get Started</Link>
               </Button>
             </>
@@ -91,7 +91,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass-strong border-t border-border/50 overflow-hidden"
+            className="lg:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="section-container py-4 flex flex-col gap-2">
               {navLinks.map((link) => (
@@ -112,14 +112,14 @@ const Navbar = () => {
                     <Button variant="ghost" size="sm" asChild className="flex-1" onClick={() => setMobileOpen(false)}>
                       <Link to="/dashboard">Dashboard</Link>
                     </Button>
-                    <Button variant="hero" size="sm" className="flex-1" onClick={() => { signOut(); setMobileOpen(false); }}>Sign Out</Button>
+                    <Button variant="default" size="sm" className="flex-1" onClick={() => { signOut(); setMobileOpen(false); }}>Sign Out</Button>
                   </>
                 ) : (
                   <>
                     <Button variant="ghost" size="sm" asChild className="flex-1" onClick={() => setMobileOpen(false)}>
                       <Link to="/login">Login</Link>
                     </Button>
-                    <Button variant="hero" size="sm" asChild className="flex-1" onClick={() => setMobileOpen(false)}>
+                    <Button variant="default" size="sm" asChild className="flex-1" onClick={() => setMobileOpen(false)}>
                       <Link to="/get-started">Get Started</Link>
                     </Button>
                   </>

@@ -8,7 +8,7 @@ interface SectionHeadingProps {
 const SectionHeading = ({ badge, title, gradientText, subtitle }: SectionHeadingProps) => (
   <div className="text-center mb-16">
     {badge && (
-      <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase glass glow-border mb-6 text-accent">
+      <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-card border border-border rounded-full shadow-sm text-foreground mb-6 text-accent">
         {badge}
       </span>
     )}
