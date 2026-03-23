@@ -1,0 +1,10 @@
+project_id = "spsvlfekeffkhsdyivyh"
+
+[functions.career-chat]
+verify_jwt = false
+
+[functions.resume-analysis]
+verify_jwt = false
+
+[functions.career-roadmap]
+verify_jwt = false
