@@ -95,13 +95,13 @@ const RecruiterDashboard = () => {
             { icon: TrendingUp, label: "Offer Rate", value: applications.length > 0 ? `${Math.round((applications.filter(a => a.status === "offer").length / applications.length) * 100)}%` : "0%" },
           ].map((s) => (
             <StaggerItem key={s.label}>
-              <Card className="border-border/40 shadow-sm transition-all hover:shadow-md group">
+              <Card className="border shadow-none">
                 <CardContent className="p-5">
                   <div className="flex items-center gap-2 mb-2">
-                    <s.icon size={16} className="text-primary" />
-                    <span className="text-muted-foreground text-xs">{s.label}</span>
+                    <s.icon size={16} className="text-muted-foreground" />
+                    <span className="text-muted-foreground text-xs font-medium">{s.label}</span>
                   </div>
-                  <p className="font-heading font-bold text-2xl text-foreground">{s.value}</p>
+                  <p className="font-heading font-semibold text-2xl text-foreground">{s.value}</p>
                 </CardContent>
               </Card>
             </StaggerItem>
@@ -110,10 +110,10 @@ const RecruiterDashboard = () => {
 
         {/* Candidate Ranking */}
         <AnimatedSection className="mb-6">
-          <Card className="border-border/40 shadow-sm">
+          <Card className="border shadow-none">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                <Users size={16} className="text-primary" /> AI Candidate Ranking
+                <Users size={16} className="text-muted-foreground" /> AI Candidate Ranking
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -132,27 +132,27 @@ const RecruiterDashboard = () => {
                     <TableBody>
                       {candidates.map((c, i) => (
                         <TableRow key={c.id}>
-                          <TableCell className="font-heading font-bold text-sm text-primary">#{i + 1}</TableCell>
+                          <TableCell className="font-heading font-semibold text-sm text-foreground">#{i + 1}</TableCell>
                           <TableCell>
                             <div className="flex items-center gap-2">
-                              <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center text-primary text-[10px] font-bold">
+                              <div className="w-7 h-7 rounded-full bg-muted flex items-center justify-center text-foreground text-xs font-semibold border border-border">
                                 {c.name[0]}
                               </div>
                               <span className="text-foreground text-sm font-medium">{c.name}</span>
                             </div>
                           </TableCell>
-                          <TableCell className="hidden md:table-cell text-muted-foreground text-[11px] max-w-[200px] truncate">{c.skills}</TableCell>
+                          <TableCell className="hidden md:table-cell text-muted-foreground text-xs max-w-[200px] truncate">{c.skills}</TableCell>
                           <TableCell>
                             <div className="flex items-center gap-2">
                               <Progress value={c.score} className="w-12 h-1.5" />
-                              <span className="text-primary text-[11px] font-bold">{c.score}%</span>
+                              <span className="text-foreground text-xs font-semibold">{c.score}%</span>
                             </div>
                           </TableCell>
                           <TableCell className="text-right">
                             <select
                               value={c.status}
                               onChange={e => handleStatusChange(c.id, e.target.value)}
-                              className="text-[10px] font-semibold px-2 py-1 rounded-md bg-muted text-foreground border-none outline-none cursor-pointer hover:bg-muted/80 transition-colors capitalize"
+                              className="text-xs font-medium px-2 py-1 rounded-md bg-muted text-foreground border-none outline-none cursor-pointer hover:bg-muted/80 transition-colors capitalize"
                             >
                               {statusOptions.map(s => (
                                 <option key={s} value={s}>{s}</option>
@@ -165,7 +165,7 @@ const RecruiterDashboard = () => {
                   </Table>
                 </div>
               ) : (
-                <p className="text-muted-foreground text-xs text-center py-8 italic">No applications received yet. Post a job to start receiving candidates.</p>
+                <p className="text-muted-foreground text-sm text-center py-8">No applications received yet. Post a job to start receiving candidates.</p>
               )}
             </CardContent>
           </Card>
@@ -174,10 +174,10 @@ const RecruiterDashboard = () => {
         <div className="grid md:grid-cols-2 gap-6">
           {/* Hiring Funnel */}
           <AnimatedSection>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                  <BarChart3 size={16} className="text-primary" /> Hiring Funnel
+                  <BarChart3 size={16} className="text-muted-foreground" /> Hiring Funnel
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -185,7 +185,7 @@ const RecruiterDashboard = () => {
                   <div className="space-y-4">
                     {funnelData.map((s) => (
                       <div key={s.stage} className="space-y-1.5">
-                        <div className="flex items-center justify-between text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                        <div className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground">
                           <span>{s.stage}</span>
                           <span>{s.count} Candidates</span>
                         </div>
@@ -194,7 +194,7 @@ const RecruiterDashboard = () => {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-muted-foreground text-xs text-center py-8 italic">No data yet</p>
+                  <p className="text-muted-foreground text-sm text-center py-8">No data yet</p>
                 )}
               </CardContent>
             </Card>
@@ -202,7 +202,7 @@ const RecruiterDashboard = () => {
 
           {/* Skill Distribution */}
           <AnimatedSection delay={0.1}>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm font-semibold">Candidate Skill Distribution</CardTitle>
               </CardHeader>
@@ -211,14 +211,14 @@ const RecruiterDashboard = () => {
                   <ChartContainer config={chartConfig} className="h-[200px] w-full">
                     <BarChart data={skillDist}>
                       <CartesianGrid vertical={false} stroke="hsl(var(--border))" />
-                      <XAxis dataKey="skill" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 10 }} tickLine={false} axisLine={false} />
-                      <YAxis tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 10 }} tickLine={false} axisLine={false} />
+                      <XAxis dataKey="skill" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} tickLine={false} axisLine={false} />
+                      <YAxis tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} tickLine={false} axisLine={false} />
                       <ChartTooltip content={<ChartTooltipContent />} />
                       <Bar dataKey="count" fill="var(--color-count)" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ChartContainer>
                 ) : (
-                  <p className="text-muted-foreground text-xs text-center py-8 italic">No candidate data yet</p>
+                  <p className="text-muted-foreground text-sm text-center py-8">No candidate data yet</p>
                 )}
               </CardContent>
             </Card>
