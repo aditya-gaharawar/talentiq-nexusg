@@ -80,47 +80,6 @@
   }
 }
 
-@layer utilities {
-  .gradient-text {
-    @apply text-foreground;
-  }
-
-  .gradient-primary {
-    @apply bg-primary text-primary-foreground;
-  }
-
-  .gradient-card {
-    @apply bg-card;
-  }
-
-  .glass {
-    @apply bg-card border border-border shadow-sm;
-  }
-
-  .glass-strong {
-    @apply bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border;
-  }
-
-  .glow {
-    @apply shadow-md;
-  }
-
-  .glow-sm {
-    @apply shadow-sm;
-  }
-
-  .glow-cyan {
-    @apply shadow-md;
-  }
-
-  .glow-border {
-    @apply border border-border hover:border-foreground/50 transition-colors;
-  }
-
-  .gradient-border {
-    @apply border border-border;
-  }
-}
 
 @layer components {
   .section-container {

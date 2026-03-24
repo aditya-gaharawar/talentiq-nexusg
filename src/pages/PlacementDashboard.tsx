@@ -102,13 +102,13 @@ const PlacementDashboard = () => {
             { icon: TrendingUp, label: "Avg Salary", value: data.avgSalary > 0 ? `₹${(data.avgSalary / 100000).toFixed(1)}L` : "—" },
           ].map((s) => (
             <StaggerItem key={s.label}>
-              <Card className="border-border/40 shadow-sm">
+              <Card className="border shadow-none">
                 <CardContent className="p-5">
                   <div className="flex items-center gap-2 mb-2">
-                    <s.icon size={16} className="text-primary" />
-                    <span className="text-muted-foreground text-xs">{s.label}</span>
+                    <s.icon size={16} className="text-muted-foreground" />
+                    <span className="text-muted-foreground text-xs font-medium">{s.label}</span>
                   </div>
-                  <p className="font-heading font-bold text-xl text-foreground">{s.value}</p>
+                  <p className="font-heading font-semibold text-2xl text-foreground">{s.value}</p>
                 </CardContent>
               </Card>
             </StaggerItem>
@@ -118,10 +118,10 @@ const PlacementDashboard = () => {
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {/* Dept Performance */}
           <AnimatedSection>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader>
                 <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                  <BarChart3 size={16} className="text-primary" /> Department Performance
+                  <BarChart3 size={16} className="text-muted-foreground" /> Department Performance
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -129,14 +129,14 @@ const PlacementDashboard = () => {
                   <ChartContainer config={chartConfig} className="h-[220px] w-full">
                     <BarChart data={data.deptStats}>
                       <CartesianGrid vertical={false} stroke="hsl(var(--border))" />
-                      <XAxis dataKey="dept" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} tickLine={false} axisLine={false} />
-                      <YAxis tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} tickLine={false} axisLine={false} />
+                      <XAxis dataKey="dept" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} tickLine={false} axisLine={false} />
+                      <YAxis tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} tickLine={false} axisLine={false} />
                       <ChartTooltip content={<ChartTooltipContent />} />
                       <Bar dataKey="rate" fill="var(--color-rate)" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ChartContainer>
                 ) : (
-                  <p className="text-muted-foreground text-xs text-center py-8 italic">No department data yet</p>
+                  <p className="text-muted-foreground text-sm text-center py-8">No department data yet</p>
                 )}
               </CardContent>
             </Card>
@@ -144,7 +144,7 @@ const PlacementDashboard = () => {
 
           {/* Skill Demand */}
           <AnimatedSection delay={0.1}>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader>
                 <CardTitle className="text-sm font-semibold">Skill Demand Heatmap</CardTitle>
               </CardHeader>
@@ -153,14 +153,14 @@ const PlacementDashboard = () => {
                   <ChartContainer config={chartConfig} className="h-[220px] w-full">
                     <BarChart data={data.skillDemand} layout="vertical">
                       <CartesianGrid horizontal={false} stroke="hsl(var(--border))" />
-                      <XAxis type="number" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} tickLine={false} axisLine={false} />
-                      <YAxis type="category" dataKey="skill" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} width={80} tickLine={false} axisLine={false} />
+                      <XAxis type="number" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} tickLine={false} axisLine={false} />
+                      <YAxis type="category" dataKey="skill" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} width={80} tickLine={false} axisLine={false} />
                       <ChartTooltip content={<ChartTooltipContent />} />
                       <Bar dataKey="count" fill="var(--color-count)" radius={[0, 4, 4, 0]} />
                     </BarChart>
                   </ChartContainer>
                 ) : (
-                  <p className="text-muted-foreground text-xs text-center py-8 italic">No skill data yet</p>
+                  <p className="text-muted-foreground text-sm text-center py-8">No skill data yet</p>
                 )}
               </CardContent>
             </Card>
@@ -170,7 +170,7 @@ const PlacementDashboard = () => {
         <div className="grid md:grid-cols-3 gap-6 mb-6">
           {/* Salary Distribution */}
           <AnimatedSection>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader>
                 <CardTitle className="text-sm font-semibold">Salary Distribution</CardTitle>
               </CardHeader>
@@ -179,7 +179,7 @@ const PlacementDashboard = () => {
                   const maxCount = Math.max(...data.salaryDistribution.map(d => d.count), 1);
                   return (
                     <div key={s.range} className="space-y-1.5">
-                      <div className="flex items-center justify-between text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                      <div className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground">
                         <span>{s.range}</span>
                         <span>{s.count} Students</span>
                       </div>
@@ -193,14 +193,14 @@ const PlacementDashboard = () => {
 
           {/* Placement Funnel */}
           <AnimatedSection delay={0.1}>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader>
                 <CardTitle className="text-sm font-semibold">Application Funnel</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {data.funnelData.map((s) => (
                   <div key={s.stage} className="space-y-1.5">
-                    <div className="flex items-center justify-between text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                    <div className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground">
                       <span>{s.stage}</span>
                       <span>{s.count.toLocaleString()}</span>
                     </div>
@@ -213,7 +213,7 @@ const PlacementDashboard = () => {
 
           {/* Placement Status Pie */}
           <AnimatedSection delay={0.2}>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader>
                 <CardTitle className="text-sm font-semibold">Placement Status</CardTitle>
               </CardHeader>
@@ -241,13 +241,13 @@ const PlacementDashboard = () => {
                       {readinessData.map((d) => (
                         <div key={d.name} className="flex items-center gap-1.5">
                           <div className="w-2 h-2 rounded-full" style={{ background: d.name === "placed" ? "hsl(var(--primary))" : "hsl(var(--muted))" }} />
-                          <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">{d.name}</span>
+                          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{d.name}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 ) : (
-                  <p className="text-muted-foreground text-xs text-center py-8 italic">No students registered yet</p>
+                  <p className="text-muted-foreground text-sm text-center py-8">No students registered yet</p>
                 )}
               </CardContent>
             </Card>
@@ -257,62 +257,62 @@ const PlacementDashboard = () => {
         {/* Real-Time Activity & Online Users */}
         <div className="grid md:grid-cols-2 gap-6">
           <AnimatedSection>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader>
                 <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                  <Activity size={16} className="text-primary" /> Live Platform Activity
+                  <Activity size={16} className="text-muted-foreground" /> Live Platform Activity
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 {recentActivity.length > 0 ? (
                   <div className="space-y-2 max-h-[300px] overflow-y-auto pr-2">
                     {recentActivity.map(a => (
-                      <div key={a.id} className="flex items-center gap-3 p-2 rounded-lg bg-muted/20 border border-border/5 text-[11px]">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                        <span className="text-muted-foreground font-medium w-12">
+                      <div key={a.id} className="flex items-center gap-3 p-3 rounded-md border border-border bg-muted/50 text-xs">
+                        <div className="w-1.5 h-1.5 rounded-full bg-foreground" />
+                        <span className="text-muted-foreground font-medium w-12 flex-shrink-0">
                           {new Date(a.applied_date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                         </span>
                         <span className="text-foreground flex-1 truncate">
                           Applied for <span className="font-semibold">{a.job?.job_role || "—"}</span>
                         </span>
-                        <Badge variant="outline" className="text-[9px] uppercase px-1.5 h-4 font-semibold">
+                        <Badge variant="outline" className="text-xs uppercase px-1.5 h-5 font-medium border-border text-foreground">
                           {a.status}
                         </Badge>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-muted-foreground text-xs text-center py-8 italic">No activity yet</p>
+                  <p className="text-muted-foreground text-sm text-center py-8">No activity yet</p>
                 )}
               </CardContent>
             </Card>
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader>
                 <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                  <Users size={16} className="text-primary" /> Online Users
-                  <Badge variant="secondary" className="ml-2 h-4 px-1.5 text-[9px] font-bold">{onlineSessions.length}</Badge>
+                  <Users size={16} className="text-muted-foreground" /> Online Users
+                  <Badge variant="secondary" className="ml-2 px-1.5 text-xs font-medium">{onlineSessions.length}</Badge>
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 {onlineSessions.length > 0 ? (
                   <div className="space-y-2 max-h-[300px] overflow-y-auto pr-2">
                     {onlineSessions.map(s => (
-                      <div key={s.id} className="flex items-center justify-between p-2 rounded-lg bg-muted/20 border border-border/5 text-[11px]">
+                      <div key={s.id} className="flex items-center justify-between p-3 rounded-md border border-border bg-muted/50 text-xs">
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
                           <span className="text-foreground font-medium capitalize">{s.role}</span>
                         </div>
-                        <span className="text-muted-foreground text-[10px]">
+                        <span className="text-muted-foreground text-xs">
                           {new Date(s.last_active_time).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                         </span>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-muted-foreground text-xs text-center py-8 italic">No users online</p>
+                  <p className="text-muted-foreground text-sm text-center py-8">No users online</p>
                 )}
               </CardContent>
             </Card>

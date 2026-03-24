@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import ParticlesBackground from "@/components/ParticlesBackground";
 import SectionHeading from "@/components/SectionHeading";
 import AnimatedSection, { StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { motion } from "framer-motion";
@@ -84,15 +83,13 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <ParticlesBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-background" />
         <div className="section-container relative z-10 text-center pt-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-card border border-border rounded-xl shadow-sm glow-border mb-8 text-accent">
+            <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-wider uppercase bg-muted text-foreground border border-border rounded-full shadow-sm mb-8">
               AI-Powered Career Intelligence
             </span>
           </motion.div>
@@ -102,7 +99,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 tracking-tight"
           >
-            <span className="gradient-text">TALENTIQ</span>
+            <span className="text-foreground">TALENTIQ</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -116,9 +113,9 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-lg md:text-xl text-muted-foreground/80 max-w-2xl mx-auto mb-10"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            We Don't Just Track Placements. We <span className="gradient-text font-semibold">Predict & Optimize</span> Careers.
+            We Don't Just Track Placements. We <span className="text-foreground font-semibold">Predict & Optimize</span> Careers.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -141,13 +138,13 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <div className="bg-card border border-border rounded-xl shadow-sm p-1 glow">
-              <div className="bg-card rounded-xl p-6">
+            <div className="bg-card border border-border rounded-xl p-1 shadow-none">
+              <div className="bg-card rounded-lg p-6 border border-border shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-destructive/60" />
-                  <div className="w-3 h-3 rounded-full bg-accent/40" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/40" />
-                  <span className="text-muted-foreground text-xs ml-2">TalentIQ Dashboard</span>
+                  <div className="w-3 h-3 rounded-full bg-border" />
+                  <div className="w-3 h-3 rounded-full bg-border" />
+                  <div className="w-3 h-3 rounded-full bg-border" />
+                  <span className="text-muted-foreground text-xs ml-2 font-medium">TalentIQ Dashboard</span>
                 </div>
                 <div className="grid grid-cols-3 gap-4">
                   {[
@@ -155,22 +152,22 @@ const Index = () => {
                     { label: "Students Active", value: "12,847", change: "+18%" },
                     { label: "Avg. Salary", value: "₹8.5L", change: "+31%" },
                   ].map((stat) => (
-                    <div key={stat.label} className="bg-card border border-border rounded-xl shadow-sm rounded-lg p-4 text-left">
-                      <p className="text-muted-foreground text-xs mb-1">{stat.label}</p>
+                    <div key={stat.label} className="bg-card border border-border rounded-lg p-4 text-left shadow-none">
+                      <p className="text-muted-foreground text-xs mb-1 font-medium">{stat.label}</p>
                       <p className="text-foreground font-heading font-bold text-xl">{stat.value}</p>
-                      <p className="text-accent text-xs font-medium">{stat.change}</p>
+                      <p className="text-muted-foreground text-xs font-medium">{stat.change}</p>
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 h-32 bg-card border border-border rounded-xl shadow-sm rounded-lg flex items-center justify-center">
-                  <div className="flex items-end gap-2 h-20">
+                <div className="mt-4 h-32 bg-card border border-border rounded-lg flex items-center justify-center p-4">
+                  <div className="flex items-end gap-2 h-full w-full justify-between">
                     {[40, 55, 45, 70, 65, 80, 75, 85, 90, 82, 88, 95].map((h, i) => (
                       <motion.div
                         key={i}
                         initial={{ height: 0 }}
                         animate={{ height: `${h}%` }}
                         transition={{ duration: 0.8, delay: 1 + i * 0.05, ease: "easeOut" }}
-                        className="w-4 sm:w-6 rounded-t gradient-primary opacity-80"
+                        className="w-full rounded-t bg-muted"
                       />
                     ))}
                   </div>
@@ -221,11 +218,11 @@ const Index = () => {
             {problemCards.map((card) => (
               <StaggerItem key={card.title}>
                 <motion.div
-                  whileHover={{ y: -4, boxShadow: "var(--shadow-glow)" }}
-                  className="bg-card border border-border rounded-xl shadow-sm p-8 text-center transition-all duration-300 group"
+                  whileHover={{ y: -4 }}
+                  className="bg-card border border-border rounded-xl p-8 text-center transition-all duration-300 group shadow-none"
                 >
-                  <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                    <card.icon size={24} className="text-primary-foreground" />
+                  <div className="w-14 h-14 rounded-xl bg-muted flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <card.icon size={24} className="text-foreground" />
                   </div>
                   <h3 className="font-heading font-semibold text-foreground text-lg mb-2">{card.title}</h3>
                   <p className="text-muted-foreground text-sm">{card.desc}</p>
@@ -235,11 +232,11 @@ const Index = () => {
           </StaggerContainer>
           <AnimatedSection>
             <div className="flex items-center justify-center gap-4 flex-wrap">
-              <span className="bg-card border border-border rounded-xl shadow-sm rounded-xl px-6 py-3 text-muted-foreground text-sm font-medium">Traditional Placement Tracker</span>
+              <span className="bg-card border border-border rounded-xl px-6 py-3 text-muted-foreground text-sm font-medium shadow-none">Traditional Placement Tracker</span>
               <motion.div animate={{ x: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-                <ArrowRight className="text-accent" />
+                <ArrowRight className="text-muted-foreground" />
               </motion.div>
-              <span className="gradient-primary rounded-xl px-6 py-3 text-primary-foreground text-sm font-semibold glow">AI Career Intelligence</span>
+              <span className="bg-foreground text-background rounded-xl px-6 py-3 text-sm font-semibold shadow-none">AI Career Intelligence</span>
             </div>
           </AnimatedSection>
         </div>
@@ -257,22 +254,22 @@ const Index = () => {
             />
           </AnimatedSection>
           <AnimatedSection>
-            <div className="max-w-3xl mx-auto bg-card border border-border rounded-xl shadow-sm p-8 glow">
-              <div className="flex flex-col md:flex-row items-center gap-6">
+            <div className="max-w-3xl mx-auto bg-card border border-border rounded-xl p-8 shadow-none">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 {workflowSteps.map((step, i) => (
                   <div key={step.label} className="flex items-center gap-4">
                     <div className="text-center">
                       <motion.div
                         whileHover={{ scale: 1.1 }}
-                        className="w-16 h-16 rounded-2xl bg-card border border-border rounded-xl shadow-sm glow-border flex items-center justify-center mx-auto mb-3"
+                        className="w-16 h-16 rounded-2xl bg-card border border-border flex items-center justify-center mx-auto mb-3 shadow-none transition-colors hover:border-foreground"
                       >
-                        <step.icon size={28} className="text-accent" />
+                        <step.icon size={28} className="text-foreground" />
                       </motion.div>
                       <p className="font-heading font-semibold text-foreground text-sm">{step.label}</p>
                       <p className="text-muted-foreground text-xs">{step.desc}</p>
                     </div>
                     {i < workflowSteps.length - 1 && (
-                      <ChevronRight className="text-accent hidden md:block flex-shrink-0" size={20} />
+                      <ChevronRight className="text-muted-foreground hidden md:block flex-shrink-0" size={20} />
                     )}
                   </div>
                 ))}
@@ -379,7 +376,7 @@ const Index = () => {
       </section>
 
       {/* Key Numbers */}
-      <AnimatedSection className="py-16 bg-card/30">
+      <AnimatedSection className="py-16 bg-muted/50 border-y border-border">
         <div className="section-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
@@ -389,8 +386,8 @@ const Index = () => {
               { value: "₹8.5L", label: "Avg Package", icon: BarChart3 },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <stat.icon size={24} className="text-primary mx-auto mb-2" />
-                <p className="font-heading font-bold text-3xl gradient-text">{stat.value}</p>
+                <stat.icon size={24} className="text-foreground mx-auto mb-2" />
+                <p className="font-heading font-bold text-3xl text-foreground">{stat.value}</p>
                 <p className="text-muted-foreground text-sm">{stat.label}</p>
               </div>
             ))}
@@ -413,17 +410,17 @@ const Index = () => {
               <StaggerItem key={card.title}>
                 <Link
                   to="/get-started"
-                  className="bg-card border border-border rounded-xl shadow-sm p-8 hover:glow-border transition-all duration-300 group block h-full"
+                  className="bg-card border border-border rounded-xl p-8 transition-colors hover:border-foreground group block h-full shadow-none"
                 >
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-6"
+                    className="w-14 h-14 rounded-xl bg-muted flex items-center justify-center mb-6"
                   >
-                    <card.icon size={28} className="text-primary-foreground" />
+                    <card.icon size={28} className="text-foreground" />
                   </motion.div>
                   <h3 className="font-heading font-semibold text-foreground text-xl mb-3">{card.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{card.desc}</p>
-                  <span className="inline-flex items-center gap-1 text-accent text-sm font-medium mt-4 group-hover:gap-2 transition-all">
+                  <span className="inline-flex items-center gap-1 text-muted-foreground text-sm font-medium mt-4 group-hover:gap-2 transition-all">
                     Learn more <ArrowRight size={14} />
                   </span>
                 </Link>
@@ -446,15 +443,15 @@ const Index = () => {
           <StaggerContainer className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t) => (
               <StaggerItem key={t.name}>
-                <div className="bg-card border border-border rounded-xl shadow-sm p-8 h-full">
+                <div className="bg-card border border-border rounded-xl p-8 h-full shadow-none">
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} className="text-accent fill-accent" />
+                      <Star key={i} size={16} className="text-muted-foreground fill-muted-foreground" />
                     ))}
                   </div>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6">"{t.text}"</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center text-primary-foreground font-heading font-bold text-sm">
+                    <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground font-heading font-bold text-sm border border-border">
                       {t.avatar}
                     </div>
                     <div>
@@ -470,20 +467,19 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-        <AnimatedSection className="section-container relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-4">
-            Start Optimizing Placements with <span className="gradient-text">AI</span>
+      <section className="section-padding border-t border-border bg-muted/30">
+        <AnimatedSection className="section-container text-center">
+          <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-4 tracking-tight">
+            Start Optimizing Placements with <span className="text-foreground">AI</span>
           </h2>
           <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-            Join hundreds of institutions transforming their placement outcomes
+            Join hundreds of institutions transforming their placement outcomes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" asChild>
+            <Button variant="default" size="lg" asChild>
               <Link to="/get-started">Get Started <ArrowRight size={18} /></Link>
             </Button>
-            <Button variant="hero-outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild>
               <Link to="/contact">Book Demo</Link>
             </Button>
           </div>

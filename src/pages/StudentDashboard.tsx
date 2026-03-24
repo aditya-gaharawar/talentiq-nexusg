@@ -174,13 +174,13 @@ const StudentDashboard = () => {
             { icon: TrendingUp, label: "Skills", value: `${skills.length}`, sub: allMissingSkills.size > 0 ? `${allMissingSkills.size} gaps` : "Complete" },
           ].map((s) => (
             <StaggerItem key={s.label}>
-              <Card className="border-border/40 shadow-sm transition-all hover:shadow-md group">
+              <Card className="border shadow-none">
                 <CardContent className="p-5">
                   <div className="flex items-center gap-2 mb-2">
-                    <s.icon size={16} className="text-primary" />
-                    <span className="text-muted-foreground text-xs">{s.label}</span>
+                    <s.icon size={16} className="text-muted-foreground" />
+                    <span className="text-muted-foreground text-xs font-medium">{s.label}</span>
                   </div>
-                  <p className="font-heading font-bold text-2xl text-foreground">{s.value}</p>
+                  <p className="font-heading font-semibold text-2xl text-foreground">{s.value}</p>
                   <p className="text-muted-foreground text-xs font-medium mt-1">{s.sub}</p>
                 </CardContent>
               </Card>
@@ -192,35 +192,35 @@ const StudentDashboard = () => {
         <AnimatedSection className="mb-6">
           <ResumeUpload currentUrl={profile?.resume_url} onUploadComplete={handleResumeComplete} />
           {resumeAnalysis && (
-            <Card className="mt-3 border-border/40 shadow-sm">
+            <Card className="mt-3 border shadow-none">
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                  <Sparkles size={16} className="text-primary" /> Resume Analysis & Insights
+                  <Sparkles size={16} className="text-foreground" /> Resume Analysis & Insights
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {/* Score + Summary */}
                 <div className="grid sm:grid-cols-2 gap-3">
-                  <div className="p-3 rounded-lg bg-muted/30 border border-border/20">
-                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1 font-semibold">Resume Score</p>
-                    <p className="font-heading font-bold text-xl text-primary">{resumeAnalysis.resume_score}/100</p>
+                  <div className="p-3 rounded-md bg-muted/50 border border-border">
+                    <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1 font-semibold">Resume Score</p>
+                    <p className="font-heading font-semibold text-xl text-foreground">{resumeAnalysis.resume_score}/100</p>
                   </div>
-                  <div className="p-3 rounded-lg bg-muted/30 border border-border/20">
-                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1 font-semibold">Skills Detected</p>
-                    <p className="font-heading font-bold text-xl text-foreground">{resumeAnalysis.detected_skills.length}</p>
+                  <div className="p-3 rounded-md bg-muted/50 border border-border">
+                    <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1 font-semibold">Skills Detected</p>
+                    <p className="font-heading font-semibold text-xl text-foreground">{resumeAnalysis.detected_skills.length}</p>
                   </div>
                 </div>
                 {resumeAnalysis.summary && (
-                  <p className="text-xs text-muted-foreground italic border-l-2 border-primary/50 pl-3 py-1 bg-muted/10">{resumeAnalysis.summary}</p>
+                  <p className="text-sm text-muted-foreground border-l-2 border-muted-foreground pl-3 py-1">{resumeAnalysis.summary}</p>
                 )}
 
                 {/* Detected Skills */}
                 {resumeAnalysis.detected_skills.length > 0 && (
                   <div>
-                    <p className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1"><CheckCircle2 size={12} className="text-primary" /> Detected Skills</p>
+                    <p className="text-sm font-semibold text-foreground mb-2 flex items-center gap-1"><CheckCircle2 size={14} className="text-muted-foreground" /> Detected Skills</p>
                     <div className="flex flex-wrap gap-1.5">
                       {resumeAnalysis.detected_skills.map(s => (
-                        <Badge key={s} variant="secondary" className="bg-primary/5 text-primary border-primary/10 capitalize text-[10px]">
+                        <Badge key={s} variant="secondary" className="capitalize text-xs font-medium">
                           {s}
                         </Badge>
                       ))}
@@ -231,22 +231,22 @@ const StudentDashboard = () => {
                 {/* Detected Projects */}
                 {resumeAnalysis.projects && resumeAnalysis.projects.length > 0 && (
                   <div>
-                    <p className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1"><Briefcase size={12} className="text-muted-foreground" /> Detected Projects</p>
+                    <p className="text-sm font-semibold text-foreground mb-2 flex items-center gap-1"><Briefcase size={14} className="text-muted-foreground" /> Detected Projects</p>
                     <div className="space-y-2">
                       {resumeAnalysis.projects.map((p, i) => (
-                        <div key={i} className="p-2.5 rounded-lg bg-muted/20 border border-border/10">
+                        <div key={i} className="p-3 rounded-md bg-muted/50 border border-border">
                           <p className="text-foreground text-sm font-medium">{typeof p === "string" ? p : p.title}</p>
                           {typeof p !== "string" && p.technologies?.length > 0 && (
                             <div className="flex flex-wrap gap-1 mt-1">
                               {p.technologies.map(t => (
-                                <Badge key={t} variant="outline" className="text-[9px] py-0 px-1.5 h-4">
+                                <Badge key={t} variant="outline" className="text-xs font-normal">
                                   {t}
                                 </Badge>
                               ))}
                             </div>
                           )}
                           {typeof p !== "string" && p.description && (
-                            <p className="text-muted-foreground text-[11px] mt-1 line-clamp-2">{p.description}</p>
+                            <p className="text-muted-foreground text-sm mt-1 line-clamp-2">{p.description}</p>
                           )}
                         </div>
                       ))}
@@ -258,10 +258,10 @@ const StudentDashboard = () => {
                 <div className="grid sm:grid-cols-2 gap-3">
                   {resumeAnalysis.strengths.length > 0 && (
                     <div>
-                      <p className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1"><TrendingUp size={12} className="text-primary" /> Strengths</p>
+                      <p className="text-sm font-semibold text-foreground mb-2 flex items-center gap-1"><TrendingUp size={14} className="text-muted-foreground" /> Strengths</p>
                       <div className="flex flex-wrap gap-1">
                         {resumeAnalysis.strengths.map(s => (
-                          <Badge key={s} variant="outline" className="text-[10px] border-primary/20 text-primary">
+                          <Badge key={s} variant="outline" className="text-xs">
                             {s}
                           </Badge>
                         ))}
@@ -270,10 +270,10 @@ const StudentDashboard = () => {
                   )}
                   {resumeAnalysis.weaknesses.length > 0 && (
                     <div>
-                      <p className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1"><AlertTriangle size={12} className="text-destructive" /> Areas to Improve</p>
+                      <p className="text-sm font-semibold text-foreground mb-2 flex items-center gap-1"><AlertTriangle size={14} className="text-muted-foreground" /> Areas to Improve</p>
                       <div className="flex flex-wrap gap-1">
                         {resumeAnalysis.weaknesses.map(w => (
-                          <Badge key={w} variant="outline" className="text-[10px] border-destructive/20 text-destructive">
+                          <Badge key={w} variant="outline" className="text-xs">
                             {w}
                           </Badge>
                         ))}
@@ -285,10 +285,10 @@ const StudentDashboard = () => {
                 {/* Improvement Suggestions */}
                 {resumeAnalysis.suggested_skills && resumeAnalysis.suggested_skills.length > 0 && (
                   <div>
-                    <p className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1"><Lightbulb size={12} className="text-muted-foreground" /> Suggested Skills to Learn</p>
+                    <p className="text-sm font-semibold text-foreground mb-2 flex items-center gap-1"><Lightbulb size={14} className="text-muted-foreground" /> Suggested Skills to Learn</p>
                     <div className="flex flex-wrap gap-1.5">
                       {resumeAnalysis.suggested_skills.map(s => (
-                        <Badge key={s} variant="secondary" className="text-[10px]">
+                        <Badge key={s} variant="secondary" className="text-xs">
                           {s}
                         </Badge>
                       ))}
@@ -298,12 +298,12 @@ const StudentDashboard = () => {
 
                 {resumeAnalysis.suggested_projects && resumeAnalysis.suggested_projects.length > 0 && (
                   <div>
-                    <p className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1"><ArrowUpRight size={12} className="text-primary" /> Suggested Project Ideas</p>
+                    <p className="text-sm font-semibold text-foreground mb-2 flex items-center gap-1"><ArrowUpRight size={14} className="text-muted-foreground" /> Suggested Project Ideas</p>
                     <div className="space-y-1.5">
                       {resumeAnalysis.suggested_projects.map((p, i) => (
-                        <div key={i} className="flex items-start gap-2 p-2 rounded-lg bg-muted/20 border border-border/10">
-                          <span className="text-primary text-xs mt-0.5">→</span>
-                          <span className="text-foreground text-xs">{p}</span>
+                        <div key={i} className="flex items-start gap-2 p-2 rounded-md bg-muted/50 border border-border">
+                          <span className="text-muted-foreground text-sm mt-0.5">→</span>
+                          <span className="text-foreground text-sm">{p}</span>
                         </div>
                       ))}
                     </div>
@@ -312,16 +312,16 @@ const StudentDashboard = () => {
 
                 {resumeAnalysis.improvement_suggestions && resumeAnalysis.improvement_suggestions.length > 0 && (
                   <div>
-                    <p className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1"><Award size={12} className="text-primary" /> Action Items</p>
+                    <p className="text-sm font-semibold text-foreground mb-2 flex items-center gap-1"><Award size={14} className="text-muted-foreground" /> Action Items</p>
                     <div className="space-y-1.5">
                       {resumeAnalysis.improvement_suggestions.map((item, i) => (
-                        <div key={i} className="flex items-start gap-2 p-2 rounded-lg bg-muted/20 border border-border/10">
-                          <Badge variant={item.priority === "high" ? "destructive" : "secondary"} className="text-[9px] uppercase px-1.5 h-4 flex-shrink-0">
+                        <div key={i} className="flex items-start gap-2 p-3 rounded-md bg-muted/50 border border-border">
+                          <Badge variant={item.priority === "high" ? "secondary" : "outline"} className="text-xs uppercase px-1.5 flex-shrink-0">
                             {item.priority}
                           </Badge>
                           <div>
-                            <span className="text-foreground text-xs font-medium">{item.category}: </span>
-                            <span className="text-muted-foreground text-xs">{item.suggestion}</span>
+                            <span className="text-foreground text-sm font-medium">{item.category}: </span>
+                            <span className="text-muted-foreground text-sm">{item.suggestion}</span>
                           </div>
                         </div>
                       ))}
@@ -336,7 +336,7 @@ const StudentDashboard = () => {
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {/* Placement Probability */}
           <AnimatedSection>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-semibold">Placement Probability</CardTitle>
               </CardHeader>
@@ -348,21 +348,21 @@ const StudentDashboard = () => {
                       <motion.circle
                         cx="50" cy="50" r="42" fill="none"
                         stroke="currentColor" strokeWidth="8" strokeLinecap="round"
-                        className="text-primary"
+                        className="text-foreground"
                         initial={{ strokeDasharray: "0 264" }}
                         animate={{ strokeDasharray: `${placementScore * 2.64} 264` }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                       />
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                      <span className="font-heading font-bold text-3xl text-foreground">{placementScore}%</span>
-                      <span className="text-muted-foreground text-[10px] font-semibold uppercase tracking-wider">
+                      <span className="font-heading font-semibold text-3xl text-foreground">{placementScore}%</span>
+                      <span className="text-muted-foreground text-xs font-semibold uppercase tracking-wider">
                         {placementScore >= 70 ? "High" : placementScore >= 40 ? "Medium" : "Low"}
                       </span>
                     </div>
                   </div>
                 </div>
-                <p className="mt-4 text-center text-muted-foreground text-[10px] leading-relaxed">
+                <p className="mt-4 text-center text-muted-foreground text-sm leading-relaxed">
                   Calculated from CGPA ({cgpa}), {skills.length} skills, {profile?.projects_count || 0} projects, and {applications.length} applications
                 </p>
               </CardContent>
@@ -371,7 +371,7 @@ const StudentDashboard = () => {
 
           {/* Skill Gap Radar */}
           <AnimatedSection delay={0.1}>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-semibold">Skill Analysis</CardTitle>
               </CardHeader>
@@ -404,25 +404,25 @@ const StudentDashboard = () => {
         {/* Missing Skills */}
         {allMissingSkills.size > 0 && (
           <AnimatedSection className="mb-6">
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                  <AlertTriangle size={16} className="text-destructive/80" /> Missing Skills & Resources
+                  <AlertTriangle size={16} className="text-muted-foreground" /> Missing Skills & Resources
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                   {Array.from(allMissingSkills).slice(0, 6).map(skill => (
-                    <div key={skill} className="p-3 rounded-lg bg-muted/20 border border-border/10">
+                    <div key={skill} className="p-3 rounded-md bg-muted/50 border border-border">
                       <p className="text-foreground text-sm font-medium capitalize">{skill}</p>
                       {SKILL_RESOURCES[skill.toLowerCase()] && (
                         <a
                           href={SKILL_RESOURCES[skill.toLowerCase()]}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-primary text-[10px] flex items-center gap-1 mt-1 hover:underline font-medium"
+                          className="text-muted-foreground text-xs flex items-center gap-1 mt-1 hover:underline font-medium"
                         >
-                          Learn <ExternalLink size={10} />
+                          Learn <ExternalLink size={12} />
                         </a>
                       )}
                     </div>
@@ -435,43 +435,43 @@ const StudentDashboard = () => {
 
         {/* Career Roadmap */}
         <AnimatedSection className="mb-6">
-          <Card className="border-border/40 shadow-sm">
+          <Card className="border shadow-none">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                  <Route size={16} className="text-primary" /> Career Roadmap
+                  <Route size={16} className="text-muted-foreground" /> Career Roadmap
                 </CardTitle>
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={generateRoadmap}
                   disabled={roadmapLoading}
-                  className="h-7 text-[10px] px-2"
+                  className="h-8 text-xs px-3"
                 >
-                  {roadmapLoading ? <Loader2 className="animate-spin mr-1" size={12} /> : <Sparkles className="mr-1" size={12} />}
+                  {roadmapLoading ? <Loader2 className="animate-spin mr-1.5" size={14} /> : <Sparkles className="mr-1.5" size={14} />}
                   {roadmapLoading ? "Generating..." : "AI Roadmap"}
                 </Button>
               </div>
             </CardHeader>
             <CardContent>
               {roadmap?.advice && (
-                <p className="text-muted-foreground text-xs mb-4 italic border-l-2 border-primary/30 pl-3">{roadmap.advice}</p>
+                <p className="text-muted-foreground text-sm mb-4 border-l-2 border-muted-foreground pl-3">{roadmap.advice}</p>
               )}
               <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
                 {roadmapSteps.map((step, i) => (
                   <div key={step.label} className="flex items-center gap-2 flex-shrink-0">
                     <motion.div
                       whileHover={{ scale: 1.02 }}
-                      className={`px-3 py-2 rounded-md text-[11px] font-medium transition-all ${
+                      className={`px-3 py-2 rounded-md text-xs font-medium transition-all ${
                         step.done
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-muted/50 text-muted-foreground border border-dashed border-border"
+                          ? "bg-foreground text-background"
+                          : "bg-muted text-muted-foreground border border-dashed border-border"
                       }`}
                       title={step.description}
                     >
                       {step.label}
                     </motion.div>
-                    {i < roadmapSteps.length - 1 && <ArrowRight size={12} className="text-muted-foreground/50" />}
+                    {i < roadmapSteps.length - 1 && <ArrowRight size={14} className="text-muted-foreground" />}
                   </div>
                 ))}
               </div>
@@ -482,10 +482,10 @@ const StudentDashboard = () => {
         <div className="grid md:grid-cols-2 gap-6">
           {/* Job Matches */}
           <AnimatedSection>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                  <Briefcase size={16} className="text-primary" /> Smart Job Matches
+                  <Briefcase size={16} className="text-muted-foreground" /> Smart Job Matches
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -496,7 +496,7 @@ const StudentDashboard = () => {
                       return (
                         <div
                           key={job.id}
-                          className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/10 hover:bg-muted/50 transition-colors"
+                          className="flex items-center justify-between p-3 rounded-md bg-muted/50 border border-border hover:bg-muted transition-colors"
                         >
                           <div>
                             <p className="text-foreground text-sm font-medium">{job.company_name}</p>
@@ -504,8 +504,8 @@ const StudentDashboard = () => {
                           </div>
                           <div className="text-right flex items-center gap-3">
                             <div>
-                              <p className="text-primary text-sm font-bold">{job.matchScore}%</p>
-                              <p className="text-muted-foreground text-[10px]">
+                              <p className="text-foreground text-sm font-semibold">{job.matchScore}%</p>
+                              <p className="text-muted-foreground text-xs">
                                 {job.salary_offered ? `₹${(Number(job.salary_offered) / 100000).toFixed(0)}L` : "—"}
                               </p>
                             </div>
@@ -514,7 +514,7 @@ const StudentDashboard = () => {
                               size="sm"
                               disabled={applied}
                               onClick={() => handleApply(job.id)}
-                              className="h-7 text-[10px] px-3"
+                              className="h-8 text-xs px-3"
                             >
                               {applied ? "Applied" : "Apply"}
                             </Button>
@@ -524,7 +524,7 @@ const StudentDashboard = () => {
                     })}
                   </div>
                 ) : (
-                  <p className="text-muted-foreground text-xs text-center py-8 italic">No jobs posted yet</p>
+                  <p className="text-muted-foreground text-sm text-center py-8">No jobs posted yet</p>
                 )}
               </CardContent>
             </Card>
@@ -532,17 +532,17 @@ const StudentDashboard = () => {
 
           {/* Application Tracker */}
           <AnimatedSection delay={0.1}>
-            <Card className="border-border/40 shadow-sm">
+            <Card className="border shadow-none">
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                  <GraduationCap size={16} className="text-primary" /> Application Tracker
+                  <GraduationCap size={16} className="text-muted-foreground" /> Application Tracker
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 {applications.length > 0 ? (
                   <div className="space-y-3">
                     {applications.map((app) => (
-                      <div key={app.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/10">
+                      <div key={app.id} className="flex items-center justify-between p-3 rounded-md bg-muted/50 border border-border">
                         <div>
                           <p className="text-foreground text-sm font-medium">{app.job?.company_name || "—"}</p>
                           <p className="text-muted-foreground text-xs">{app.job?.job_role || "—"}</p>
@@ -550,7 +550,7 @@ const StudentDashboard = () => {
                         <Badge
                           variant="secondary"
                           className={cn(
-                            "text-[10px] font-medium capitalize",
+                            "text-xs font-medium capitalize",
                             STATUS_COLORS[app.status]
                           )}
                         >
@@ -560,7 +560,7 @@ const StudentDashboard = () => {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-muted-foreground text-xs text-center py-8 italic">No applications yet. Apply to jobs to track them here.</p>
+                  <p className="text-muted-foreground text-sm text-center py-8">No applications yet. Apply to jobs to track them here.</p>
                 )}
               </CardContent>
             </Card>
