@@ -41,7 +41,7 @@ const ContactPage = () => {
             <AnimatedSection delay={0.2}>
               <div className="space-y-6">
                 {[
-                  { icon: Mail, label: "Email", value: "hello@talentiq.ai" },
+                  { icon: Mail, label: "Email", value: "hello@webspaceai.com" },
                   { icon: Phone, label: "Phone", value: "+91 98765 43210" },
                   { icon: MapPin, label: "Office", value: "Bangalore, India" },
                 ].map((item) => (

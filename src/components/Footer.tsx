@@ -7,10 +7,10 @@ const Footer = () => (
         <div className="col-span-2 md:col-span-1">
           <Link to="/" className="flex items-center gap-2 mb-4">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-heading font-bold text-sm">T</span>
+              <span className="text-primary-foreground font-heading font-bold text-sm">W</span>
             </div>
             <span className="font-heading font-bold text-lg text-foreground tracking-tight">
-              TalentIQ
+              WEBSPACEAI LABS
             </span>
           </Link>
           <p className="text-muted-foreground text-sm leading-relaxed">
@@ -37,7 +37,7 @@ const Footer = () => (
         ))}
       </div>
       <div className="border-t border-border mt-12 pt-8 text-center text-muted-foreground text-sm">
-        © 2026 TalentIQ. All rights reserved.
+        © 2026 WEBSPACEAI LABS. All rights reserved.
       </div>
     </div>
   </footer>

@@ -18,17 +18,17 @@ import iiitHyderabadLogo from "@/assets/logos/iiit-hyderabad.png";
 
 const placementData = [
   { name: "Before", value: 62, fill: "hsl(var(--muted-foreground))" },
-  { name: "After TalentIQ", value: 85, fill: "url(#barGradient)" },
+  { name: "After WEBSPACEAI", value: 85, fill: "url(#barGradient)" },
 ];
 
 const hiringSpeed = [
   { name: "Manual", days: 5, fill: "hsl(var(--muted-foreground))" },
-  { name: "TalentIQ", days: 1, fill: "url(#barGradient)" },
+  { name: "WEBSPACEAI", days: 1, fill: "url(#barGradient)" },
 ];
 
 const roiData = [
   { name: "Traditional", cost: 15000, fill: "hsl(var(--muted-foreground))" },
-  { name: "TalentIQ", cost: 8500, fill: "url(#barGradient)" },
+  { name: "WEBSPACEAI", cost: 8500, fill: "url(#barGradient)" },
 ];
 
 const funnelData = [
@@ -58,7 +58,7 @@ const workflowSteps = [
 ];
 
 const testimonials = [
-  { name: "Arjun Mehta", role: "Student, IIT Delhi", text: "TalentIQ predicted my placement probability at 87% and gave me a clear roadmap. I landed my dream job at Google!", avatar: "A" },
+  { name: "Arjun Mehta", role: "Student, IIT Delhi", text: "WEBSPACEAI predicted my placement probability at 87% and gave me a clear roadmap. I landed my dream job at Google!", avatar: "A" },
   { name: "Priya Sharma", role: "HR Lead, Infosys", text: "Hiring time reduced by 4x. The AI matching engine surfaces the best candidates instantly.", avatar: "P" },
   { name: "Dr. Rajesh Kumar", role: "Placement Officer, NIT", text: "We went from 62% to 89% placement rate in one year. The predictive analytics are game-changing.", avatar: "R" },
 ];
@@ -102,7 +102,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 tracking-tight"
           >
-            <span className="gradient-text">TALENTIQ</span>
+            <span className="gradient-text">WEBSPACEAI</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -147,7 +147,7 @@ const Index = () => {
                   <div className="w-3 h-3 rounded-full bg-destructive/60" />
                   <div className="w-3 h-3 rounded-full bg-accent/40" />
                   <div className="w-3 h-3 rounded-full bg-green-500/40" />
-                  <span className="text-muted-foreground text-xs ml-2">TalentIQ Dashboard</span>
+                  <span className="text-muted-foreground text-xs ml-2">WEBSPACEAI Dashboard</span>
                 </div>
                 <div className="grid grid-cols-3 gap-4">
                   {[
@@ -252,7 +252,7 @@ const Index = () => {
             <SectionHeading
               badge="The Solution"
               title="Meet"
-              gradientText="TalentIQ"
+              gradientText="WEBSPACEAI"
               subtitle="AI-powered placement optimization connecting students, recruiters, and placement cells"
             />
           </AnimatedSection>

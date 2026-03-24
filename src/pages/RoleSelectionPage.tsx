@@ -40,10 +40,10 @@ const RoleSelectionPage = () => (
       >
         <div className="inline-flex items-center gap-2 mb-6">
           <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-heading font-bold">T</span>
+            <span className="text-primary-foreground font-heading font-bold">W</span>
           </div>
           <span className="font-heading font-bold text-2xl text-foreground">
-            Talent<span className="gradient-text">IQ</span>
+            WEBSPACE<span className="gradient-text">AI</span>
           </span>
         </div>
         <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-3">

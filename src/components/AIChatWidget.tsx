@@ -11,7 +11,7 @@ const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/career-chat`
 const AIChatWidget = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([
-    { role: "assistant", content: "Hi! I'm TalentIQ's AI Career Advisor. Ask me about career paths, resume tips, interview prep, or placement strategies! 🎯" },
+    { role: "assistant", content: "Hi! I'm Orion, an AI system developed by WEBSPACEAI LABS. Ask me about career paths, resume tips, interview prep, or placement strategies! 🎯" },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -115,7 +115,7 @@ const AIChatWidget = () => {
             <div className="flex items-center gap-2">
               <Bot size={20} />
               <div>
-                <p className="font-heading font-semibold text-sm">TalentIQ AI Advisor</p>
+                <p className="font-heading font-semibold text-sm">Orion AI Advisor</p>
                 <p className="text-xs opacity-80">Career intelligence at your fingertips</p>
               </div>
             </div>

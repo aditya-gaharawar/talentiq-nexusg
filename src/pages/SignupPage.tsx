@@ -76,14 +76,14 @@ const SignupPage = () => {
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
             <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-heading font-bold">T</span>
+              <span className="text-primary-foreground font-heading font-bold">W</span>
             </div>
             <span className="font-heading font-bold text-xl text-foreground">
-              Talent<span className="gradient-text">IQ</span>
+              WEBSPACE<span className="gradient-text">AI</span>
             </span>
           </Link>
           <h1 className="font-heading font-bold text-2xl text-foreground">Create Account</h1>
-          <p className="text-muted-foreground text-sm mt-1">Get started with TalentIQ</p>
+          <p className="text-muted-foreground text-sm mt-1">Get started with WEBSPACEAI</p>
         </div>
 
         <div className="glass rounded-2xl p-8 glow-sm">

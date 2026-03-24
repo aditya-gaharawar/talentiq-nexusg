@@ -13,13 +13,13 @@ export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    const saved = localStorage.getItem("talentiq-theme");
+    const saved = localStorage.getItem("webspaceai-theme");
     return (saved === "dark" ? "dark" : "light") as Theme;
   });
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("talentiq-theme", theme);
+    localStorage.setItem("webspaceai-theme", theme);
   }, [theme]);
 
   const toggleTheme = () => setTheme((prev) => (prev === "light" ? "dark" : "light"));

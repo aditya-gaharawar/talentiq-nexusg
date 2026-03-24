@@ -42,7 +42,7 @@ const AnalyticsPage = () => (
               <h3 className="font-heading font-semibold text-foreground mb-4">Placement Probability by Department</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <BarChart data={placementProb}>
-                  <defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="hsl(263, 70%, 50%)" /><stop offset="100%" stopColor="hsl(187, 92%, 42%)" /></linearGradient></defs>
+                  <defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="hsl(263, 70%, 50%)" /><stop offset="100%" stopColor="hsl(238, 80%, 60%)" /></linearGradient></defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis dataKey="name" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} />
                   <YAxis tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} />
@@ -58,12 +58,12 @@ const AnalyticsPage = () => (
               <h3 className="font-heading font-semibold text-foreground mb-4">Salary Forecast Trend (₹ LPA)</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <AreaChart data={salaryTrend}>
-                  <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="hsl(263, 70%, 50%)" stopOpacity={0.4} /><stop offset="100%" stopColor="hsl(187, 92%, 42%)" stopOpacity={0.05} /></linearGradient></defs>
+                  <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="hsl(263, 70%, 50%)" stopOpacity={0.4} /><stop offset="100%" stopColor="hsl(238, 80%, 60%)" stopOpacity={0.05} /></linearGradient></defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis dataKey="year" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} />
                   <YAxis tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} />
                   <Tooltip contentStyle={chartTooltipStyle} />
-                  <Area type="monotone" dataKey="avg" stroke="hsl(187, 92%, 42%)" fill="url(#ag)" strokeWidth={2} />
+                  <Area type="monotone" dataKey="avg" stroke="hsl(238, 80%, 60%)" fill="url(#ag)" strokeWidth={2} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -96,7 +96,7 @@ const AnalyticsPage = () => (
                   <YAxis tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} />
                   <Tooltip contentStyle={chartTooltipStyle} />
                   <Bar dataKey="manual" fill="hsl(var(--muted-foreground))" radius={[4, 4, 0, 0]} name="Manual" />
-                  <Bar dataKey="ai" fill="hsl(187, 92%, 42%)" radius={[4, 4, 0, 0]} name="TalentIQ" />
+                  <Bar dataKey="ai" fill="hsl(238, 80%, 60%)" radius={[4, 4, 0, 0]} name="WEBSPACEAI" />
                 </BarChart>
               </ResponsiveContainer>
             </div>

@@ -26,10 +26,10 @@ const Navbar = () => {
       <div className="section-container flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-heading font-bold text-sm">T</span>
+            <span className="text-primary-foreground font-heading font-bold text-sm">W</span>
           </div>
           <span className="font-heading font-bold text-lg text-foreground tracking-tight">
-            TalentIQ
+            WEBSPACEAI
           </span>
         </Link>
 
