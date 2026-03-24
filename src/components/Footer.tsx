@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 
 const Footer = () => (
-  <footer className="border-t border-border/50 bg-card/30">
+  <footer className="border-t border-border bg-background">
     <div className="section-container py-16">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div className="col-span-2 md:col-span-1">
           <Link to="/" className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
-              <span className="text-foreground font-heading font-bold text-sm">T</span>
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+              <span className="text-primary-foreground font-heading font-bold text-sm">T</span>
             </div>
-            <span className="font-heading font-bold text-lg text-foreground">
-              Talent<span className="gradient-text">IQ</span>
+            <span className="font-heading font-bold text-lg text-foreground tracking-tight">
+              TalentIQ
             </span>
           </Link>
           <p className="text-muted-foreground text-sm leading-relaxed">
@@ -36,7 +36,7 @@ const Footer = () => (
           </div>
         ))}
       </div>
-      <div className="border-t border-border/50 mt-12 pt-8 text-center text-muted-foreground text-sm">
+      <div className="border-t border-border mt-12 pt-8 text-center text-muted-foreground text-sm">
         © 2026 TalentIQ. All rights reserved.
       </div>
     </div>

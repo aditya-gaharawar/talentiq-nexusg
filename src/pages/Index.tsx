@@ -92,7 +92,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase glass glow-border mb-8 text-accent">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-card border border-border rounded-xl shadow-sm glow-border mb-8 text-accent">
               AI-Powered Career Intelligence
             </span>
           </motion.div>
@@ -141,7 +141,7 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <div className="glass rounded-2xl p-1 glow">
+            <div className="bg-card border border-border rounded-xl shadow-sm p-1 glow">
               <div className="bg-card rounded-xl p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-3 h-3 rounded-full bg-destructive/60" />
@@ -155,14 +155,14 @@ const Index = () => {
                     { label: "Students Active", value: "12,847", change: "+18%" },
                     { label: "Avg. Salary", value: "₹8.5L", change: "+31%" },
                   ].map((stat) => (
-                    <div key={stat.label} className="glass rounded-lg p-4 text-left">
+                    <div key={stat.label} className="bg-card border border-border rounded-xl shadow-sm rounded-lg p-4 text-left">
                       <p className="text-muted-foreground text-xs mb-1">{stat.label}</p>
                       <p className="text-foreground font-heading font-bold text-xl">{stat.value}</p>
                       <p className="text-accent text-xs font-medium">{stat.change}</p>
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 h-32 glass rounded-lg flex items-center justify-center">
+                <div className="mt-4 h-32 bg-card border border-border rounded-xl shadow-sm rounded-lg flex items-center justify-center">
                   <div className="flex items-end gap-2 h-20">
                     {[40, 55, 45, 70, 65, 80, 75, 85, 90, 82, 88, 95].map((h, i) => (
                       <motion.div
@@ -222,7 +222,7 @@ const Index = () => {
               <StaggerItem key={card.title}>
                 <motion.div
                   whileHover={{ y: -4, boxShadow: "var(--shadow-glow)" }}
-                  className="glass rounded-2xl p-8 text-center transition-all duration-300 group"
+                  className="bg-card border border-border rounded-xl shadow-sm p-8 text-center transition-all duration-300 group"
                 >
                   <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                     <card.icon size={24} className="text-primary-foreground" />
@@ -235,7 +235,7 @@ const Index = () => {
           </StaggerContainer>
           <AnimatedSection>
             <div className="flex items-center justify-center gap-4 flex-wrap">
-              <span className="glass rounded-xl px-6 py-3 text-muted-foreground text-sm font-medium">Traditional Placement Tracker</span>
+              <span className="bg-card border border-border rounded-xl shadow-sm rounded-xl px-6 py-3 text-muted-foreground text-sm font-medium">Traditional Placement Tracker</span>
               <motion.div animate={{ x: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
                 <ArrowRight className="text-accent" />
               </motion.div>
@@ -257,14 +257,14 @@ const Index = () => {
             />
           </AnimatedSection>
           <AnimatedSection>
-            <div className="max-w-3xl mx-auto glass rounded-2xl p-8 glow">
+            <div className="max-w-3xl mx-auto bg-card border border-border rounded-xl shadow-sm p-8 glow">
               <div className="flex flex-col md:flex-row items-center gap-6">
                 {workflowSteps.map((step, i) => (
                   <div key={step.label} className="flex items-center gap-4">
                     <div className="text-center">
                       <motion.div
                         whileHover={{ scale: 1.1 }}
-                        className="w-16 h-16 rounded-2xl glass glow-border flex items-center justify-center mx-auto mb-3"
+                        className="w-16 h-16 rounded-2xl bg-card border border-border rounded-xl shadow-sm glow-border flex items-center justify-center mx-auto mb-3"
                       >
                         <step.icon size={28} className="text-accent" />
                       </motion.div>
@@ -295,7 +295,7 @@ const Index = () => {
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 gap-6">
             <StaggerItem>
-              <div className="glass rounded-2xl p-6">
+              <div className="bg-card border border-border rounded-xl shadow-sm p-6">
                 <h3 className="font-heading font-semibold text-foreground mb-4">Placement Rate Improvement</h3>
                 <ResponsiveContainer width="100%" height={200}>
                   <BarChart data={placementData}>
@@ -314,7 +314,7 @@ const Index = () => {
               </div>
             </StaggerItem>
             <StaggerItem>
-              <div className="glass rounded-2xl p-6">
+              <div className="bg-card border border-border rounded-xl shadow-sm p-6">
                 <h3 className="font-heading font-semibold text-foreground mb-4">Hiring Speed (Days)</h3>
                 <ResponsiveContainer width="100%" height={200}>
                   <BarChart data={hiringSpeed}>
@@ -333,7 +333,7 @@ const Index = () => {
               </div>
             </StaggerItem>
             <StaggerItem>
-              <div className="glass rounded-2xl p-6">
+              <div className="bg-card border border-border rounded-xl shadow-sm p-6">
                 <h3 className="font-heading font-semibold text-foreground mb-4">Placement Funnel</h3>
                 <div className="flex flex-col gap-3">
                   {funnelData.map((item) => (
@@ -356,7 +356,7 @@ const Index = () => {
               </div>
             </StaggerItem>
             <StaggerItem>
-              <div className="glass rounded-2xl p-6">
+              <div className="bg-card border border-border rounded-xl shadow-sm p-6">
                 <h3 className="font-heading font-semibold text-foreground mb-4">Cost Per Hire (₹)</h3>
                 <ResponsiveContainer width="100%" height={200}>
                   <BarChart data={roiData}>
@@ -413,7 +413,7 @@ const Index = () => {
               <StaggerItem key={card.title}>
                 <Link
                   to="/get-started"
-                  className="glass rounded-2xl p-8 hover:glow-border transition-all duration-300 group block h-full"
+                  className="bg-card border border-border rounded-xl shadow-sm p-8 hover:glow-border transition-all duration-300 group block h-full"
                 >
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
@@ -446,7 +446,7 @@ const Index = () => {
           <StaggerContainer className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t) => (
               <StaggerItem key={t.name}>
-                <div className="glass rounded-2xl p-8 h-full">
+                <div className="bg-card border border-border rounded-xl shadow-sm p-8 h-full">
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} size={16} className="text-accent fill-accent" />
